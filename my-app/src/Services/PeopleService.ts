@@ -13,5 +13,18 @@ export default {
         }
 
 
+    },
+
+    async fetchPerson(id: number): Promise<any> {
+
+        try {
+            const response = await (await axios.get(Constants.peopleEndpoint+`/${id}`)).data;
+            
+            return Promise.resolve(response);
+
+        } catch (error) {
+            return Promise.reject({})
+        }
+
     }
 };
