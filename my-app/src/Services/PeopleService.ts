@@ -1,12 +1,19 @@
 import axios from "axios";
-import { Constants } from '../Config/Constants';
+import { peopleEndpoint} from "../Config/Constants";
+
 import Person from '../Model/Person';
+
+
+interface typeAlias {
+    getAllResponse : { data : {results : Array<Person>}}
+    getById: {data : Person}
+}
 
 export default {
     async fetchPeople(): Promise<Array<Person>> {
         try {
-            const { results  }: { results : Array<Person>} = await (await axios.get(Constants.peopleEndpoint)).data;
-            console.log(results);
+            const {data}: typeAlias["getAllResponse"] = await (axios.get(peopleEndpoint));
+            const { results } = data;
             return Promise.resolve(results);
         } catch (error) {
             return Promise.reject([])
@@ -16,7 +23,7 @@ export default {
     async fetchPerson(id: string = "0"): Promise<Person> {
 
         try {
-            const {data: person}: {data : Person} = await (await axios.get(Constants.peopleEndpoint + `/${id}`));
+            const {data : person}: typeAlias["getById"] = await (axios.get(`${peopleEndpoint}/${id}`));
             return Promise.resolve(person);
         } catch (error) {
             return Promise.reject({});

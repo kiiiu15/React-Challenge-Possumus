@@ -1,4 +1,6 @@
-export class Constants {
-    static domain:string = "https://swapi.dev/api";
-    static peopleEndpoint:string = Constants.domain + "/people";
-}
+const domain: string = "https://swapi.dev/api";
+export const peopleEndpoint:string = `${domain}/people`;
+
+
+
+
