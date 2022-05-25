@@ -1,5 +1,5 @@
 import axios from "axios";
-import { peopleEndpoint} from "../Config/Constants";
+import { peopleEndpoint, emptyPerson } from '../Config/Constants';
 
 import Person from '../Model/Person';
 
@@ -26,7 +26,7 @@ export default {
             const {data : person}: typeAlias["getById"] = await (axios.get(`${peopleEndpoint}/${id}`));
             return Promise.resolve(person);
         } catch (error) {
-            return Promise.reject({});
+            return Promise.reject(emptyPerson);
         }
 
     }
