@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import PeopleService from "../../Services/PeopleService";
 import Person from '../../Model/Person';
 import DisplayAttributes from './components/ListAttributes';
+import Loading from '../../Components/Loading';
 
 const empty: Person = {
     name: "",
@@ -53,9 +54,12 @@ function DetailPerson() {
 
     return <>
         <div className="p-5  bg-light border border-dark">
-            <div className="container-fluid d-flex flex-column justify-content-center py-5">
-                <h1 className="display-5 fw-bold">{person.name}</h1>               
-                <DisplayAttributes title="Details: " person={person}/>
+            <div className="container-fluid d-flex flex-column justify-content-center align-items-center py-5">
+
+                {(person == empty) ? <Loading /> : <>
+                    <h1 className="display-5 fw-bold">{person.name}</h1>
+                    <DisplayAttributes title="Details: " person={person} />
+                </>}
             </div>
         </div>
     </>;
