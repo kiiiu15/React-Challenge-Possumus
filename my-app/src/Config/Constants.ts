@@ -1,4 +1,4 @@
-import Person from "../Model/Person";
+import {Person} from "../Model/Person";
 
 const domain: string = "https://swapi.dev/api";
 export const peopleEndpoint:string = `${domain}/people`;

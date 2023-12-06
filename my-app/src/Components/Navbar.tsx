@@ -1,7 +1,7 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-function Navbar() {
+export function Navbar() {
 
     return <nav className="navbar bg-dark mb-3">
         <div className="container-fluid">
@@ -10,6 +10,3 @@ function Navbar() {
         
     </nav>
 }
-
-
-export default Navbar;

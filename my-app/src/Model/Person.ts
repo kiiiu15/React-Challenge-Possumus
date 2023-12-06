@@ -1,4 +1,5 @@
-interface Person {
+export interface Person {
+        id?: string
         name: string
         height: string
         mass: string
@@ -14,5 +15,3 @@ interface Person {
         starships: Array<string>
         url: string
 }
-
-export default Person;
