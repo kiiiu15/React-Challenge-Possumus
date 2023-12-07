@@ -13,13 +13,18 @@ export function DetailPerson() {
     <>
       <div className="container p-5 bg-light border border-dark">
         <div className="container-fluid d-flex flex-column justify-content-center align-items-center py-5">
-          {isPersonLoading ? <Loading /> : undefined}
-          {didPersonFetchFailed ? (
-            <p>{fetchPersonError}</p>
+          {isPersonLoading ? (
+            <Loading />
           ) : (
             <>
-              <h1 className="display-5 fw-bold">{person?.name}</h1>
-              <PersonCard title="Details: " person={person} />
+              {didPersonFetchFailed ? (
+                <p>{fetchPersonError}</p>
+              ) : (
+                <>
+                  <h1 className="display-5 fw-bold">{person?.name}</h1>
+                  <PersonCard title="Details: " person={person} />
+                </>
+              )}
             </>
           )}
         </div>

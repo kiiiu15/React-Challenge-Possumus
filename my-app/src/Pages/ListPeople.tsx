@@ -9,11 +9,16 @@ export function ListPeople() {
     <>
       <div className="container">
         <div className="w-100 d-flex flex-column justify-content-center align-items-center bg-light border border-dark">
-          {arePeopleLoading ? <Loading /> : undefined}
-          {didPeopleFetchFailed ? (
-            <p>{fetchPeopleError}</p>
+          {arePeopleLoading ? (
+            <Loading />
           ) : (
-            <PersonTable people={people} />
+            <>
+              {didPeopleFetchFailed ? (
+                <p>{fetchPeopleError}</p>
+              ) : (
+                <PersonTable people={people} />
+              )}
+            </>
           )}
         </div>
       </div>
