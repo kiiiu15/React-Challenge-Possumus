@@ -1,21 +1,20 @@
 import { Link } from "react-router-dom";
+import { Person } from "../Model/Person";
 
-interface Props {
-  id: string;
-  name: string;
-}
-export default function PersonTableLine(person: Props) {
-  const { id, name } = person;
+export default function PersonTableLine(person: Person) {
+  const { id, name, height, mass } = person;
   return (
     <>
-      <li className="d-flex justify-content-around align-items-center">
-        <p className="w-50"> {name}</p>
-        <p>
+      <tr>
+        <td className="w-50"> {name}</td>
+        <td className="w-50"> {height}</td>
+        <td className="w-50"> {mass}</td>
+        <td>
           <Link to={`/people/${id}`} className="btn btn-warning">
             Details
           </Link>
-        </p>
-      </li>
+        </td>
+      </tr>
     </>
   );
 }

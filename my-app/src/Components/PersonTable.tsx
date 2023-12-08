@@ -8,11 +8,21 @@ interface Props {
 export function PersonTable({ people }: Props) {
   return (
     <>
-      <ul className="list-unstyled py-5 px-3">
-        {people.map(({ name }, index) => (
-          <PersonTableLine name={name} id={String(index + 1)} key={index} />
-        ))}
-      </ul>
+      <table className="table table-dark py-5 px-3">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Height</th>
+            <th>Mass</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {people.map((person, index) => (
+            <PersonTableLine {...person} id={String(index + 1)} key={index} />
+          ))}
+        </tbody>
+      </table>
     </>
   );
 }
