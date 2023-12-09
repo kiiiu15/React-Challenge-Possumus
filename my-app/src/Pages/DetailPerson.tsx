@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { Loading } from "../Components/Loading";
-import { PersonCard } from "../Components/PersonCard";
 import { usePerson } from "../Hooks/usePerson";
+import { PersonTabsContainer } from "../Components/PersonTabsContainer";
 
 export function DetailPerson() {
   const { id } = useParams();
@@ -11,7 +11,7 @@ export function DetailPerson() {
 
   return (
     <>
-      <div className="container p-5 bg-light border border-dark">
+      <div className="container p-2 bg-light border border-dark rounded">
         <div className="container-fluid d-flex flex-column justify-content-center align-items-center py-5">
           {isPersonLoading ? (
             <Loading />
@@ -21,8 +21,8 @@ export function DetailPerson() {
                 <p>{fetchPersonError}</p>
               ) : (
                 <>
-                  <h1 className="display-5 fw-bold">{person?.name}</h1>
-                  <PersonCard title="Details: " person={person} />
+                  <h2 className="display-5 fw-bold my-4">{person?.name}</h2>
+                  <PersonTabsContainer person={person} />
                 </>
               )}
             </>

@@ -10,10 +10,8 @@ function App() {
   return (
 
     <BrowserRouter>
-      <div className='bg-secondary'>
         <Navbar />
         <Router />
-      </div>
     </BrowserRouter>
   );
 }

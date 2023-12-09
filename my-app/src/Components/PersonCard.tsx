@@ -1,12 +1,29 @@
-import {Person} from "../Model/Person";
+import { Person } from "../Model/Person";
+
+
+interface Props {
+  person: Person;
+  title: string;
+}
 
 export function PersonCard({
   title,
   person,
-}: {
-  person: Person;
-  title: string;
-}) {
+}: Props) {
+  const keys = [
+    "Eye color",
+    "Films",
+    "Gender",
+    "Hair color",
+    "Heigth",
+    "Homeworld",
+    "Mass",
+    "Skin",
+    "Species",
+    "Startships",
+    "Vehicles",
+  ];
+
   const {
     eye_color,
     films,
@@ -23,20 +40,53 @@ export function PersonCard({
 
   return (
     <>
-      <p className="fs-2">{title}</p>
-      <ul className="list-unstyled col-md-8 fs-4 d-flex flex-column flex-wrap">
-        <li>{`Eye color: ${eye_color}`}</li>
-        <li>{`Films: ${films.length}`}</li>
-        <li>{`Gender: ${gender}`}</li>
-        <li>{`Hair color: ${hair_color}`}</li>
-        <li>{`Heigth: ${height} cm`}</li>
-        <li>{`Homeworld: Planet ${homeworld.split("/")[5]}`}</li>
-        <li>{`Mass: ${mass} kg`}</li>
-        <li>{`Skin: ${skin_color}`}</li>
-        <li>{`Species: ${species.length}`}</li>
-        <li>{`Startships: ${starships.length}`}</li>
-        <li>{`Vehicles: ${vehicles.length}`}</li>
-      </ul>
+      <div className="card container-fluid">
+        <div className="card-body">
+          <p className="card-subtitle fs-4">{title}</p>
+          <section>
+            <table className="table">
+              <tbody>
+                <tr>
+                  <td>Eye color</td>
+                  <td>{eye_color}</td>
+                </tr>
+                <tr>
+                  <td>Films</td>
+                  <td>{films.length}</td>
+                </tr>
+                <tr>
+                  <td>Gender</td>
+                  <td>{gender}</td>
+                </tr>
+                <tr>
+                  <td>Hair color</td>
+                  <td>{hair_color}</td>
+                </tr>
+                <tr>
+                  <td>Height</td>
+                  <td>{`${height} cm`}</td>
+                </tr>
+                <tr>
+                  <td>Homeworld</td>
+                  <td>{`Planet ${homeworld.split("/")[5]}`}</td>
+                </tr>
+                <tr>
+                  <td>Mass</td>
+                  <td>{`${mass} kg`}</td>
+                </tr>
+                <tr>
+                  <td>Skin</td>
+                  <td>{skin_color}</td>
+                </tr>
+                <tr>
+                  <td>Species</td>
+                  <td>{species.length}</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
     </>
   );
 }
