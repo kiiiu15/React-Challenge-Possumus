@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
 import { Person } from "../Model/Person";
+import { PersonDetailsTab } from "./PersonDetailsTab";
+import { PersonFilmsTab } from "./PersonFilmsTab";
+import { PersonVehiclesTab } from "./PersonVehiclesTab";
 
 interface Props {
-  person: Partial<Person>;
+  person: Person;
 }
 
 export function PersonTabsContainer({ person }: Props) {
@@ -12,43 +14,30 @@ export function PersonTabsContainer({ person }: Props) {
   return (
     <>
       <ul className="nav nav-tabs">
-        <li className="nav-item">
-          <Link
-            className={`nav-link ${currentTab === 0 ? "active" : ""}`.trim()}
-            aria-current="page"
-            to={"details"}
-            onClick={() => setCurrentTab(0)}
-            state={{person}}
-          >
-            Details
-          </Link>
+        <li
+          className={`nav-item ${currentTab === 0 ? "active" : ""}`}
+          onClick={() => setCurrentTab(0)}
+        >
+          <span role="button" className="nav-link">Details</span>
         </li>
-        <li className="nav-item">
-          <Link
-            className={`nav-link ${currentTab === 1 ? "active" : ""}`.trim()}
-            aria-current="page"
-            to={"movies"}
-            onClick={() => setCurrentTab(1)}
-            state={{person}}
-          >
-            Movies
-          </Link>
+        <li
+          className={`nav-item ${currentTab === 1 ? "active" : ""}`}
+          onClick={() => setCurrentTab(1)}
+        >
+          <span role="button" className="nav-link">Movies</span>
         </li>
-        <li className="nav-item">
-          <Link
-            className={`nav-link ${currentTab === 2 ? "active" : ""}`.trim()}
-            aria-current="page"
-            to={"vehicles"}
-            onClick={() => setCurrentTab(2)}
-            state={{person}}
-          >
-            Vehicles
-          </Link>
+        <li
+          className={`nav-item ${currentTab === 2 ? "active" : ""}`}
+          onClick={() => setCurrentTab(2)}
+        >
+          <span role="button" className="nav-link">Vehicles</span>
         </li>
       </ul>
 
       <main className="container bg-secondary rounded">
-        <Outlet />
+        {currentTab === 0 ? <PersonDetailsTab person={person} /> : undefined}
+        {currentTab === 1 ? <PersonFilmsTab person={person} /> : undefined}
+        {currentTab === 2 ? <PersonVehiclesTab /> : undefined}
       </main>
     </>
   );

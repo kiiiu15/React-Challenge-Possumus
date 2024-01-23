@@ -10,19 +10,6 @@ export function PersonCard({
   title,
   person,
 }: Props) {
-  const keys = [
-    "Eye color",
-    "Films",
-    "Gender",
-    "Hair color",
-    "Heigth",
-    "Homeworld",
-    "Mass",
-    "Skin",
-    "Species",
-    "Startships",
-    "Vehicles",
-  ];
 
   const {
     eye_color,
@@ -33,9 +20,7 @@ export function PersonCard({
     homeworld,
     mass,
     skin_color,
-    species = ["n/a"],
-    starships,
-    vehicles,
+    species = ["n/a"]
   } = person;
 
   return (

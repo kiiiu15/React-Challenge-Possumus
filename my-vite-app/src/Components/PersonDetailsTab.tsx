@@ -1,12 +1,12 @@
-import { useLocation } from "react-router-dom";
-import { PersonCard } from "./PersonCard";
 import { Person } from "../Model/Person";
+import { PersonCard } from "./PersonCard";
 
-export function PersonDetailsTab() {
-  const { state } : any = useLocation();
+type Props = {
+  person: Person;
+};
 
+export function PersonDetailsTab({person}: Props) {
 
-  const person = state?.person as Person;
   return (
     <section className="p-2 m-3">
       <PersonCard person={person} title="Details" />
