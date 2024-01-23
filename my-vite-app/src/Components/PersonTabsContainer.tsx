@@ -15,22 +15,22 @@ export function PersonTabsContainer({ person }: Props) {
     <>
       <ul className="nav nav-tabs">
         <li
-          className={`nav-item ${currentTab === 0 ? "active" : ""}`}
+          className="nav-item" 
           onClick={() => setCurrentTab(0)}
         >
-          <span role="button" className="nav-link">Details</span>
+          <span role="button" className={`nav-link ${currentTab === 0 ? "active" : ""}`}>Details</span>
         </li>
         <li
-          className={`nav-item ${currentTab === 1 ? "active" : ""}`}
+          className="nav-item" 
           onClick={() => setCurrentTab(1)}
         >
-          <span role="button" className="nav-link">Movies</span>
+          <span role="button" className={`nav-link ${currentTab === 1 ? "active" : ""}`}>Movies</span>
         </li>
         <li
-          className={`nav-item ${currentTab === 2 ? "active" : ""}`}
+          className="nav-item" 
           onClick={() => setCurrentTab(2)}
         >
-          <span role="button" className="nav-link">Vehicles</span>
+          <span role="button" className={`nav-link ${currentTab === 2 ? "active" : ""}`}>Vehicles</span>
         </li>
       </ul>
 
