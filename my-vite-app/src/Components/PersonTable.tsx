@@ -8,7 +8,7 @@ interface Props {
 export function PersonTable({ people }: Props) {
   return (
     <>
-      <table className="table table-dark py-5 px-3">
+      <table className="table table-striped mb-0 py-5 px-3">
         <thead>
           <tr>
             <th>Name</th>

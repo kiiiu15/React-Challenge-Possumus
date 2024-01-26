@@ -1,9 +1,9 @@
-html, body {
+html, body, #root {
   height: 100%;
 }
 
 
-#root {
+main {
   min-height: 100%;
 }
 

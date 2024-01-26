@@ -9,7 +9,8 @@ export function PersonDetailsTab({person}: Props) {
 
   return (
     <section className="p-2 m-3">
-      <PersonCard person={person} title="Details" />
+      <p className="fs-4">Details</p>
+      <PersonCard person={person} />
     </section>
   );
 }

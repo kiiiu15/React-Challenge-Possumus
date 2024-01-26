@@ -7,8 +7,8 @@ export function ListPeople() {
     usePeople();
   return (
     <>
-      <div className="container">
-        <div className="w-100 d-flex flex-column justify-content-center align-items-center bg-light border border-dark">
+
+        <div className="p-2 py-3 bg-light">
           {arePeopleLoading ? (
             <Loading />
           ) : (
@@ -21,7 +21,6 @@ export function ListPeople() {
             </>
           )}
         </div>
-      </div>
     </>
   );
 }

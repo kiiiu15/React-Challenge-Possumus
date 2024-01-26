@@ -1,17 +1,16 @@
-import React from 'react';
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter } from 'react-router-dom';
-import {Navbar} from './Components/Navbar';
-import Router from './Config/Router';
-
+import { BrowserRouter } from "react-router-dom";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import { Navbar } from "./Components/Navbar";
+import Router from "./Config/Router";
 
 function App() {
   return (
-
     <BrowserRouter>
-        <Navbar />
+      <Navbar />
+      <main>
         <Router />
+      </main>
     </BrowserRouter>
   );
 }

@@ -3,11 +3,9 @@ import { Person } from "../Model/Person";
 
 interface Props {
   person: Person;
-  title: string;
 }
 
 export function PersonCard({
-  title,
   person,
 }: Props) {
 
@@ -27,8 +25,6 @@ export function PersonCard({
     <>
       <div className="card container-fluid">
         <div className="card-body">
-          <p className="card-subtitle fs-4">{title}</p>
-          <section>
             <table className="table">
               <tbody>
                 <tr>
@@ -69,7 +65,6 @@ export function PersonCard({
                 </tr>
               </tbody>
             </table>
-          </section>
         </div>
       </div>
     </>
