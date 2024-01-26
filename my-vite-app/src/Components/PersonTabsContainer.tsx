@@ -22,7 +22,7 @@ export function PersonTabsContainer({ person }: Props) {
       <main className="container bg-secondary rounded">
         {currentTab === 0 ? <PersonDetailsTab person={person} /> : undefined}
         {currentTab === 1 ? <PersonFilmsTab person={person} /> : undefined}
-        {currentTab === 2 ? <PersonVehiclesTab /> : undefined}
+        {currentTab === 2 ? <PersonVehiclesTab person={person} /> : undefined}
       </main>
     </>
   );
