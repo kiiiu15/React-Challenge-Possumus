@@ -11,8 +11,8 @@ export function PersonVehiclesTab({person}: Props) {
     <section className="p-2 m-3">
       <p className="fs-4">Vehicles</p>
         <ul className="list-group">
-          {person?.vehicles?.map((vehicle) => (
-            <li className="list-group-item placeholder-glow ">
+          {person?.vehicles?.map((vehicle, index) => (
+            <li className="list-group-item placeholder-glow" key={index}>
               <PersonVehicleLink vehicleUrl={vehicle} />
             </li>
           ))}
