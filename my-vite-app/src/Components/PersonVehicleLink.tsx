@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Vehicle } from "../Model/Vehicle";
-import { getVehicleById } from "../Services/Vehicle/getById";
+import { useVehicle } from "../Hooks/useVehicle";
 
 type Props = {
   vehicleUrl: string;
 };
 
 export function PersonVehicleLink({ vehicleUrl }: Props) {
-  const [vehicleData, setVehicleData] = useState<Vehicle>();
+  const vehicleId = vehicleUrl.split("/")[5];
 
-  useEffect(() => {
-    const vehicleId = vehicleUrl.split("/")[5];
-    getVehicleById(vehicleId).then((filmData) => setVehicleData(filmData));
-  }, [vehicleUrl]);
+  const { vehicleData } = useVehicle(vehicleId);
 
   return (
     <>
