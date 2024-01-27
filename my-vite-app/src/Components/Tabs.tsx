@@ -1,8 +1,8 @@
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 
 type Props = {
   tabs: string[];
-  handleTabChange: Function
+  handleTabChange: (tab: number) => void;
 };
 
 export function Tabs({ tabs, handleTabChange }: Props) {
@@ -12,10 +12,13 @@ export function Tabs({ tabs, handleTabChange }: Props) {
       <ul className="nav nav-tabs">
         {tabs.map((tab, index) => (
           <>
-            <li className="nav-item" onClick={() =>{
-                 setCurrentTab(index);
-                 handleTabChange(index);
-            }}>
+            <li
+              className="nav-item"
+              onClick={() => {
+                setCurrentTab(index);
+                handleTabChange(index);
+              }}
+            >
               <span
                 role="button"
                 className={`nav-link ${currentTab === index ? "active" : ""}`}

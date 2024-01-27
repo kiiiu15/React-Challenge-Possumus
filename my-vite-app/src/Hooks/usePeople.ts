@@ -6,8 +6,8 @@ export function usePeople() {
   const [people, setPeople] = useState<Person[]>([]);
   const [arePeopleLoading, setArePeopleLoading] = useState<boolean>(false);
   const [fetchPeopleError, setFetchPeopleError] = useState<
-    string | Error | any
-  >(false);
+    string | undefined | Error 
+  >("");
 
   useEffect(() => {
     setArePeopleLoading(true);

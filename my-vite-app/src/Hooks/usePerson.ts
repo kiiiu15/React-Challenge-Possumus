@@ -12,18 +12,18 @@ export function usePerson({ idPerson }: Props) {
   const [isPersonLoading, setIsPersonLoading] = useState(false);
 
   const [fetchPersonError, setFetchPersonError] = useState<
-    string | Error | any
-  >(false);
+    string | undefined | Error
+  >("");
 
   useEffect(() => {
-    if (Boolean(idPerson)) {
+    if (idPerson) {
       setIsPersonLoading(true);
       getPersonById(idPerson)
         .then((person) => {
           setPerson(person);
           setFetchPersonError(undefined);
         })
-        .catch(error => {
+        .catch((error) => {
           setPerson(emptyPerson);
           setFetchPersonError(error);
         })
@@ -35,6 +35,6 @@ export function usePerson({ idPerson }: Props) {
     person,
     isPersonLoading,
     fetchPersonError,
-    didPersonFetchFailed: Boolean(fetchPersonError)
+    didPersonFetchFailed: Boolean(fetchPersonError),
   };
 }
